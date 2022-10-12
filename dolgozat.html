@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dolgozat</title>
+    <style>
+        body { display: flex; flex-direction: column; gap: 1rem; }
+        img { max-width: 10rem; }
+        .container { display: flex; flex-direction: column; gap: .5rem; border-radius: .4rem; border: 1px solid #3699FF; padding: .5rem; width: 20rem; }
+        .btn-con { display: flex; flex-direction: row; gap: .5rem; justify-content: space-around; } .btn-con button { border: 1px solid #3699FF; font-weight: 700; width: 4rem; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+        .border-soft { border-radius: .2rem; border-color: transparent; background-color: #ddd; color: #eee; }
+        .primary-bg, .pagination-active { background-color: #0380fd24 !important; color: #3699FF !important; }
+        .primary-dark-bg { background-color: #3699FF; color: #fff; }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="fold.jpg" id="image">
+        <button id="swt">Csere</button>
+    </div>
+    <br>
+    <div>
+        <input class="border-soft" type="number" min="1" id="width" placeholder="szelesseg">
+        <input class="border-soft" type="number" min="1" id="height" placeholder="magassag">
+        <span id="rd"></span>
+        <button id="rect">Szamol</button>
+    </div>
+    <div class="container">
+        <strong>Egyszeru szamologep</strong>
+        <input class="border-soft" type="number" min="1" id="no" placeholder="elso szam" />
+        <input class="border-soft" type="number" min="1" id="nt" placeholder="masodik szam" />
+        <span id="display"></span>
+        <div class="btn-con">
+            <button class="primary-bg primary-bg-hover border-soft" id="osszead">+</button>
+            <button class="primary-bg primary-bg-hover border-soft" id="kivonas">-</button>
+            <button class="primary-bg primary-bg-hover border-soft" id="szorzas">*</button>
+            <button class="primary-bg primary-bg-hover border-soft" id="osztas">/</button>
+        </div>
+    </div>
+    <script>
+        // 1.
+        let kp = ['fold.jpg', 'mars.jpg']; let c = 0;
+        document.getElementById("swt").addEventListener("click", () => { c++;
+            if (c % 2 == 0) { document.getElementById("image").src = kp[0]; } else { document.getElementById("image").src = kp[1]; }
+        });
+
+        // 2.
+        document.getElementById("rect").addEventListener("click", () => { 
+            let w = document.getElementById("width").value; let h = document.getElementById("height").value;
+            document.getElementById("rd").innerHTML = `<span>Kerulet: ${2 * (w+h)}</span><span> Terulet: ${w*h}</span>`;
+        });
+
+        // 3.
+        document.getElementById("osszead").addEventListener("click", () => {
+            let no = document.getElementById('no').value; let nt = document.getElementById('nt').value;
+            document.getElementById('display').textContent = Number(no) + Number(nt);
+        }); document.getElementById("kivonas").addEventListener("click", () => {
+            let no = document.getElementById('no').value; let nt = document.getElementById('nt').value;
+            document.getElementById('display').textContent = Number(no) - Number(nt);
+        }); document.getElementById("szorzas").addEventListener("click", () => {
+            let no = document.getElementById('no').value; let nt = document.getElementById('nt').value;
+            document.getElementById('display').textContent = Number(no) * Number(nt);
+        }); document.getElementById("osztas").addEventListener("click", () => {
+            let no = document.getElementById('no').value; let nt = document.getElementById('nt').value;
+            document.getElementById('display').textContent = Number(no) / Number(nt);
+        });
+
+    </script>
+</body>
+</html>
