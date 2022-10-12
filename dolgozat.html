@@ -10,11 +10,11 @@
         img { max-width: 10rem; }
         .container { display: flex; flex-direction: column; gap: .5rem; border-radius: .4rem; border: 1px solid #3699FF; padding: .5rem; width: 20rem; }
         .btn-con { display: flex; flex-direction: row; gap: .5rem; justify-content: space-around; } .btn-con button { border: 1px solid #3699FF; font-weight: 700; width: 4rem; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
-        .border-soft { border-radius: .2rem; border-color: transparent; background-color: #ddd; color: #eee; }
+        .border-soft { border-radius: .2rem; border-color: transparent; background-color: #ddd; color: #333; }
         .primary-bg { background-color: #0380fd24 !important; color: #3699FF !important; } .primary-bg-hover:hover { background-color: #3699FF !important; color: #fff !important; cursor: pointer; }
         .primary-dark-bg { background-color: #3699FF; color: #fff; }
         .box-shadow { box-shadow: var(--button-shadow) 0px 2px 8px 0px; }
-
+        #display { padding: 1rem; background-color: #eee !important; }
         .flex { display: flex; } .flex-justify-con-c { justify-content: center; } .flex-col { flex-direction: column; } .gap-05 { gap: .5rem; }
     </style>
 </head>
@@ -34,7 +34,7 @@
         <strong>Egyszeru szamologep</strong>
         <input class="border-soft" type="number" min="1" id="no" placeholder="elso szam" />
         <input class="border-soft" type="number" min="1" id="nt" placeholder="masodik szam" />
-        <span id="display"></span>
+        <span class="border-soft" id="display">0</span>
         <div class="btn-con">
             <button class="primary-bg primary-bg-hover border-soft" id="osszead">+</button>
             <button class="primary-bg primary-bg-hover border-soft" id="kivonas">-</button>
